@@ -1,0 +1,108 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, Segoe UI, Roboto, sans-serif;
+  --bg: #0f1114;
+  --panel: #161a20;
+  --panel-elevated: #202632;
+  --text: #edf1f6;
+  --muted: #93a0b2;
+  --accent: #6cb6ff;
+  --border: #2d3542;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.app-shell {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.actions,
+.toolbar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+button {
+  border: 1px solid var(--border);
+  background: #262d3a;
+  color: var(--text);
+  padding: 0.4rem 0.7rem;
+  border-radius: 0.35rem;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent);
+}
+
+.toolbar {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel-elevated);
+}
+
+.editor-wrap {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 0;
+}
+
+.side-panel {
+  border-right: 1px solid var(--border);
+  background: var(--panel);
+  padding: 1rem;
+  color: var(--muted);
+  overflow: auto;
+}
+
+.side-panel h2,
+.side-panel h3 {
+  color: var(--text);
+}
+
+.editor {
+  margin: 1.25rem;
+  background: #fefefe;
+  color: #1f2128;
+  border-radius: 0.6rem;
+  padding: 2rem;
+  min-height: calc(100vh - 180px);
+  overflow: auto;
+  line-height: 1.6;
+  box-shadow: 0 12px 30px rgb(0 0 0 / 35%);
+}
+
+.editor:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.path {
+  word-break: break-all;
+  font-size: 0.8rem;
+}
