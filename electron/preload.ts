@@ -6,22 +6,14 @@ type OpenDocxResult = {
   warnings: string[];
 };
 
-type OpenProjectResult = {
-  filePath: string;
-  html: string;
-};
-
 type SaveResult = {
   filePath: string;
 };
 
 const api = {
   openDocx: (): Promise<OpenDocxResult | null> => ipcRenderer.invoke('file:openDocx'),
-  openProject: (): Promise<OpenProjectResult | null> => ipcRenderer.invoke('file:openProject'),
   saveDocx: (html: string): Promise<SaveResult | null> => ipcRenderer.invoke('file:saveDocx', { html }),
-  saveProjectAs: (html: string): Promise<SaveResult | null> => ipcRenderer.invoke('file:saveProjectAs', { html }),
-  saveProject: (html: string, filePath: string): Promise<SaveResult> =>
-    ipcRenderer.invoke('file:saveProject', { html, filePath })
+  saveNative: (html: string): Promise<SaveResult | null> => ipcRenderer.invoke('file:saveNative', { html })
 };
 
 contextBridge.exposeInMainWorld('docMakerApi', api);

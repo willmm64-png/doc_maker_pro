@@ -101,8 +101,3 @@ button:hover {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
-
-.path {
-  word-break: break-all;
-  font-size: 0.8rem;
-}
